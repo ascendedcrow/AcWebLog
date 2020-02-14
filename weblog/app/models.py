@@ -3,7 +3,6 @@ Definition of models.
 """
 
 from django.db import models
-from django.conf import settings
 
 class BaseModel(models.Model):
     created = models.DateTimeField(auto_now_add=True, db_index=True, blank=False, null=False)
