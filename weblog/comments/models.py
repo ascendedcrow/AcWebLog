@@ -1,0 +1,9 @@
+from app.models import BaseModel
+from posts.models import Post
+from django.db import models
+
+class Comment(BaseModel):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField('Name', max_length=255, blank=False,  null=False)
+    e_mail = models.EmailField('E-Mail', max_length=255, blank=False,  null=False)
+    contents = models.TextField('Contents', blank=False,  null=False)
