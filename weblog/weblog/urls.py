@@ -12,7 +12,23 @@ from comments import views as comment_views
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    # Post Views
+    path(
+            '', 
+            post_views.PostListView.as_view
+            (
+                extra_context = {'title': 'Posts'}
+             ), 
+            name='Posts'
+        ),
+    path(
+            'comments/', 
+            comment_views.CommentView.as_view
+            (
+                extra_context = {'title': 'Posts'}
+             ), 
+            name='Comments'
+        ),   
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('login/',
@@ -30,6 +46,4 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
 
-    #path('$/', app.posts, name='posts'),
-    #path('$/', app.comments, name='comments'),
 ]

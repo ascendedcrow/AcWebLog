@@ -1,0 +1,47 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<br />
+<table class="table table-striped">
+    <tbody>
+        {% for post in object_list %}
+            <tr>
+                <td data-toggle="tooltip" title="Title, User and Created date of the post." style="width:20%">
+                    <b>{{ post.title }}</b><br />
+                    <span style="font-size:small">{{ post.user }} <br /></span>
+                    <span style="font-size:small">{{ post.created|date:"SHORT_DATE_FORMAT" }} </span>
+                </td>
+                <td data-toggle="tooltip" title="Post Contents" style="width:60%">
+                    {{ post.contents}}
+                </td>                    
+                <td>
+                    <a href="{% url 'contact' %}">Add Comments</a>
+                </td>
+            </tr>
+            {% if post.comments.count > 0 %}
+                <tr>
+                    <td colspan="3" align="center">
+                        <b>Comments for Post: {{ post.title }}</b>
+                    </td>
+                </tr>
+            {% endif %}
+            {% for comment in post.comments.all %}
+                <tr>    
+                    <td>
+                        {{ comment }}
+                    </td>
+                    <td>
+                        {{ comment.contents }}
+                    </td>
+                    <td>
+                        <a href="{% url 'contact' %}">Approve</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

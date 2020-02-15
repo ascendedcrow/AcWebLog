@@ -40,6 +40,12 @@
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="comments\apps.py" />
+    <Compile Include="comments\forms\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="comments\forms\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="comments\migrations\__init__.py" />
     <Compile Include="comments\models.py" />
     <Compile Include="comments\tests.py" />
@@ -49,6 +55,9 @@
     <Compile Include="posts\apps.py" />
     <Compile Include="posts\migrations\__init__.py" />
     <Compile Include="posts\models.py" />
+    <Compile Include="posts\templates\posts\post_list.html">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="posts\tests.py" />
     <Compile Include="posts\views.py" />
     <Compile Include="posts\__init__.py" />
@@ -72,11 +81,20 @@
     <Folder Include="app\templates\app\" />
     <Folder Include="comments\" />
     <Folder Include="comments\migrations\" />
+    <Folder Include="comments\forms\" />
+    <Folder Include="comments\templates\" />
+    <Folder Include="comments\templates\comments\" />
     <Folder Include="posts\" />
     <Folder Include="posts\migrations\" />
+    <Folder Include="posts\templates\" />
+    <Folder Include="posts\templates\posts\" />
     <Folder Include="weblog\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\scripts\posts.js" />
+    <Content Include="comments\templates\comments\comment_form.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="db.sqlite3" />
     <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />

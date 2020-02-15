@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from posts.models import Post
+from django.views.generic.list import ListView
+
+"""
+This is the view to display the posts in a list
+"""
+class PostListView(ListView):
+    model = Post
