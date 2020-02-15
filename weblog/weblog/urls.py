@@ -22,10 +22,10 @@ urlpatterns = [
             name='Posts'
         ),
     path(
-            'comments/', 
+            'comments/add/<int:post_id>/', 
             comment_views.CommentView.as_view
             (
-                extra_context = {'title': 'Posts'}
+                extra_context = {'title': 'Add Comments'}
              ), 
             name='Comments'
         ),   
