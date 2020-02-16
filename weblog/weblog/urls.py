@@ -15,6 +15,8 @@ from comments import views as comment_views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'posts', post_views.PostViewSet)
+router.register(r'comments', comment_views.CommentViewSet)
 
 urlpatterns = [
     # Post Views

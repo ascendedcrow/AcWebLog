@@ -51,6 +51,9 @@
     </Compile>
     <Compile Include="comments\migrations\__init__.py" />
     <Compile Include="comments\models.py" />
+    <Compile Include="comments\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="comments\tests.py" />
     <Compile Include="comments\views.py" />
     <Compile Include="comments\__init__.py" />
@@ -58,6 +61,9 @@
     <Compile Include="posts\apps.py" />
     <Compile Include="posts\migrations\__init__.py" />
     <Compile Include="posts\models.py" />
+    <Compile Include="posts\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="posts\templates\posts\post_list.html">
       <SubType>Code</SubType>
     </Compile>

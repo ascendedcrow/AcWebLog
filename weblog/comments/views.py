@@ -4,14 +4,17 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from rest_framework import viewsets
 
 from comments.models import Comment
 from posts.models import Post
+from comments.serializers import CommentSerializer
 
-"""
-This is the view to display the form view
-"""
+
 class CommentView(CreateView):
+    """
+    This is the view to display the form view
+    """
     model = Comment
     fields = ['name', 'e_mail', 'contents']
 
@@ -32,6 +35,16 @@ class CommentView(CreateView):
 
 @login_required
 def approve_comment(request, *args, **kwargs):
+    """
+    Approve the comment 
+    """
     comment = get_object_or_404(Comment, pk=kwargs.get('post_id'))
     comment.approve_comment()
     return HttpResponseRedirect(reverse('Posts'))
+
+class CommentViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows comment to be viewed or edited.
+    """
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
