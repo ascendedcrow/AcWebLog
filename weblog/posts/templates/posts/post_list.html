@@ -17,7 +17,7 @@
                     {{ post.contents}}
                 </td>                    
                 <td>
-                    <a href="{% url 'contact' %}">Add Comments</a>
+                    <a href="{% url 'Comments' post.id %}">Add Comment</a>
                 </td>
             </tr>
             {% if post.comments.count > 0 %}
@@ -43,5 +43,27 @@
         {% endfor %}
     </tbody>
 </table>
+
+<!-- Modal (validations not working)
+<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="postModalLabel">Create Comment</h5>
+      </div>
+      <div class="modal-body" id="comment_form">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="SubmitComment">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
 {% endblock %}

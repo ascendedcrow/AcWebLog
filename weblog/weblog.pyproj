@@ -91,7 +91,7 @@
     <Folder Include="weblog\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\static\app\scripts\posts.js" />
+    <Content Include="app\static\app\scripts\site.js" />
     <Content Include="comments\templates\comments\comment_form.html">
       <SubType>Code</SubType>
     </Content>

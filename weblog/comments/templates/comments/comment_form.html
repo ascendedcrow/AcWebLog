@@ -1,5 +1,14 @@
+{% extends "app/layout.html" %}
 
-<form method="post">{% csrf_token %}
+{% block content %}
+
+<h2>{{ title }}</h2>
+<br />
+
+<form method="post" id="CommentForm">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Comments">
+    <input type="submit" value="Comment" class="btn btn-primary">
+    <button type="button" class="btn btn-secondary">Cancel</button>
 </form>
+
+{% endblock %}
