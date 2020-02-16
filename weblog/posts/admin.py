@@ -13,10 +13,9 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [
         CommentInline,
     ]
+    admin.site.register(Post, PostAdmin)
 
     def save_model(self, request, obj, form, change):
         obj.user = request.user
         obj.save()
-
-class PostAdmin(admin.ModelAdmin):
-    admin.site.register(Post, PostAdmin)
+   
