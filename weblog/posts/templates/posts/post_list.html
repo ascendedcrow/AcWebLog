@@ -4,6 +4,10 @@
 
 <h2>{{ title }}</h2>
 <br />
+{% if object_list.count == 0 %}
+    <p>No Posts Created</p>
+{% endif %}
+
 <table class="table table-striped">
     <tbody>
         {% for post in object_list %}
