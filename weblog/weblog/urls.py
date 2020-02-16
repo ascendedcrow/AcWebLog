@@ -3,13 +3,18 @@ Definition of urls for weblog.
 """
 
 from datetime import datetime
-from django.urls import path
+from django.urls import include, path
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
+from rest_framework import routers
+
 from app import forms, views
 from posts import views as post_views
 from comments import views as comment_views
 
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     # Post Views
@@ -51,4 +56,7 @@ urlpatterns = [
     # Admin Views
     path('admin/', admin.site.urls),
 
+    # Rest Framework
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

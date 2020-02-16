@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'app',
     'posts',
     'comments',
+    'rest_framework',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',
@@ -116,4 +117,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
