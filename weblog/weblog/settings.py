@@ -86,8 +86,8 @@ DATABASES = {
         'NAME': 'weblog',
         'USER': 'weblog_user',
         'PASSWORD': 'weblog_password',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
