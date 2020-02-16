@@ -7,6 +7,7 @@ class Comment(BaseModel):
     name = models.CharField('Name', max_length=255, blank=False,  null=False)
     e_mail = models.EmailField('E-Mail', max_length=255, blank=False,  null=False)
     contents = models.TextField('Contents', blank=False,  null=False)
+    approved = models.BooleanField('Approved', default=False)
 
     def __str__(self):
         return '{name} ({email})'.format(email=self.e_mail, name=self.contents)

@@ -4,10 +4,12 @@ from comments.models import Comment
 
 class CommentInline(admin.StackedInline):
     model = Comment
-    fields = ['name','e_mail','contents']
+    fields = ['approved', 'name', 'e_mail', 'contents']
+    
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ['title','contents']
+    readonly_fields = ['created']
+    fields = ['title', 'contents', 'published']
     inlines = [
         CommentInline,
     ]
