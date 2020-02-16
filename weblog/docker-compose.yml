@@ -3,19 +3,24 @@ version: '3'
 services:
   db:
     image: postgres
-    restart: always
     environment:
       POSTGRES_PASSWORD: weblog_password
       POSTGRES_USER: weblog_user
       POSTGRES_DB: weblog
   web:
     build: .
-    restart: always
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - migration
+      - db
+  migration:
+    command: python manage.py migrate --noinput
+    volumes:
+      - .:/code
     depends_on:
       - db
 
