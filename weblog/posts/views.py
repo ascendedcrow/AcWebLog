@@ -8,3 +8,4 @@ This is the view to display the posts in a list
 """
 class PostListView(ListView):
     model = Post
+    paginate_by = 5
