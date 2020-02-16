@@ -11,3 +11,7 @@ class Comment(BaseModel):
 
     def __str__(self):
         return '{name} ({email})'.format(email=self.e_mail, name=self.contents)
+
+    def approve_comment(self):
+        self.approved = True
+        self.save()

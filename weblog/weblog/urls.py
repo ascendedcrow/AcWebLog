@@ -21,6 +21,8 @@ urlpatterns = [
              ), 
             name='Posts'
         ),
+
+    # Comment Views
     path(
             'comments/add/<int:post_id>/', 
             comment_views.CommentView.as_view
@@ -29,8 +31,9 @@ urlpatterns = [
              ), 
             name='Comments'
         ),   
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
+    path('comments/approve/<int:post_id>/', comment_views.approve_comment , name='Approve Comments'),
+
+    # User Views
     path('login/',
          LoginView.as_view
          (
@@ -44,6 +47,8 @@ urlpatterns = [
          ),
          name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    
+    # Admin Views
     path('admin/', admin.site.urls),
 
 ]

@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 from comments.models import Comment
 from posts.models import Post
-from django.views.generic.edit import CreateView
-from django.shortcuts import get_object_or_404
 
 """
 This is the view to display the form view
@@ -26,3 +29,9 @@ class CommentView(CreateView):
     def form_valid(self, form):
         form.instance.post = self.post_item
         return super().form_valid(form)
+
+@login_required
+def approve_comment(request, *args, **kwargs):
+    comment = get_object_or_404(Comment, pk=kwargs.get('post_id'))
+    comment.approve_comment()
+    return HttpResponseRedirect(reverse('Posts'))

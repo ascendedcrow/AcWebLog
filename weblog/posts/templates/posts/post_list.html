@@ -29,7 +29,7 @@
                     </tr>
                 {% endif %}
                 {% for comment in post.comments.all %}
-                    {% if post.comment.approved == True or user.is_superuser %}
+                    {% if comment.approved == True or user.is_superuser %}
                         <tr>    
                             <td>
                                 {{ comment }}
@@ -38,10 +38,10 @@
                                 {{ comment.contents }}
                             </td>
                             <td>
-                                {% if post.comment.approved == True %}
+                                {% if comment.approved == True %}
                                     <b>Approved</b>
                                 {% else %}
-                                    <b>Not Approved</b>
+                                    <b><a href="{% url 'Approve Comments' comment.id %}">Approve Comment</a></b>
                                 {% endif %}
                             </td>
                         </tr>
